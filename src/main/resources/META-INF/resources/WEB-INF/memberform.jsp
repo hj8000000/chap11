@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset=UTF-8>
-<title>index.jsp</title>
+<title>memberform.jsp</title>
 <!-- 1. animate -->
 <link rel="stylesheet" href="/webjars/animate.css/3.5.2/animate.min.css">
 <!-- 2. bootstrap -->
@@ -18,32 +18,18 @@
 <script type="text/javascript" src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<ol>
-	<li><a href="/member">memberform</a></li>
-</ol>
+<a href="/index.jsp">Home</a>
+<hr>
+<form action="/member" method="post">
+	id : <input type="text" name="id"><br>
+	pw : <input type="password" name="pw"><br>
+	job : <input type="checkbox" name="job" value="developer">개발자
+		  <input type="checkbox" name="job" value="engineer">엔지니어
+		  <input type="checkbox" name="job" value="analysis">분석자
+	<br>
+	<input type="submit">
 
-<h1>EL(Expression Language) 내장객체 11가지</h1>
-<%
-	request.setAttribute("el_1", "pageContext 기본객체");
-	request.setAttribute("el_2", "pageScope 기본객체");
-	
-	session.setAttribute("el_3", "requestScope 기본객체");
-	session.setAttribute("el_4", "sessionScope 기본객체");
-	
-	application.setAttribute("el_5", "applicationScope 기본객체");
-%>
-<ol>
-	<li>${requestScope.el_1}</li>
-	<li>${requestScope.el_2}</li>
-	<li>${sessionScope.el_3}</li>
-	<li>${sessionScope.el_4}</li>
-	<li>${applicationScope.el_5}</li>
-	<li>param</li>
-	<li>paramValues</li>
-	<li>header</li>
-	<li>headerVaules</li>
-	<li>cookies</li>
-	<li>initParam</li>
-</ol>
+</form>
+
 </body>
 </html>

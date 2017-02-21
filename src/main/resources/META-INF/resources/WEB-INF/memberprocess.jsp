@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset=UTF-8>
-<title>index.jsp</title>
+<title>memberprocess.jsp</title>
 <!-- 1. animate -->
 <link rel="stylesheet" href="/webjars/animate.css/3.5.2/animate.min.css">
 <!-- 2. bootstrap -->
@@ -18,32 +18,28 @@
 <script type="text/javascript" src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<ol>
-	<li><a href="/member">memberform</a></li>
-</ol>
+<a href="/member">memberform.jsp</a>
+<hr>
+id = [<%=request.getParameter("id")%>]<br>
+pw = [<%=request.getParameter("pw")%>]<br>
+job = [<%=request.getParameter("job")%>]<br>
 
-<h1>EL(Expression Language) 내장객체 11가지</h1>
 <%
-	request.setAttribute("el_1", "pageContext 기본객체");
-	request.setAttribute("el_2", "pageScope 기본객체");
+	String[] values = request.getParameterValues("job");
 	
-	session.setAttribute("el_3", "requestScope 기본객체");
-	session.setAttribute("el_4", "sessionScope 기본객체");
-	
-	application.setAttribute("el_5", "applicationScope 기본객체");
+	if(values != null) 
+		for (String v : values) {
+			out.println(v + "<br>");
+		}
 %>
-<ol>
-	<li>${requestScope.el_1}</li>
-	<li>${requestScope.el_2}</li>
-	<li>${sessionScope.el_3}</li>
-	<li>${sessionScope.el_4}</li>
-	<li>${applicationScope.el_5}</li>
-	<li>param</li>
-	<li>paramValues</li>
-	<li>header</li>
-	<li>headerVaules</li>
-	<li>cookies</li>
-	<li>initParam</li>
-</ol>
+
+<hr>
+<!-- param은 첫번째만 가져오고 paramvalue은 배열의 크기만큼 가져온다 -->
+id = [${param.id}]<br>
+pw = [${param.pw}]<br>
+job = [${param.job}]<br>
+job0 = [${paramValues.job[0]}]<br>
+job1 = [${paramValues.job[1]}]<br>
+job2 = [${paramValues.job[2]}]<br>
 </body>
 </html>

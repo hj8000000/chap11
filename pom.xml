@@ -76,6 +76,11 @@
 			<groupId>org.jolokia</groupId>
 			<artifactId>jolokia-core</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.infinispan</groupId>
+			<artifactId>infinispan-commons</artifactId>
+			<version>8.2.5.Final</version>
+		</dependency>
 	</dependencies>
 
 	<build>
